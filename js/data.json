@@ -1,6 +1,20 @@
 {
   "portfolio-data": [
     {
+      "title": "World Imagery Wayback",
+      "description": "<a href='https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/imagery/wayback-81-flavors-of-world-imagery/' target='_blank'>Wayback imagery</a> is a digital archive of Esri's World Imagery basemap, enabling users to access all versions of World Imagery captured since 2014. This app offers a dynamic Wayback browsing experience where previous World Imagery versions are presented within the map, along a timeline, and as a list",
+      "screenshot": "wayback.png",
+      "url": "https://livingatlas.arcgis.com/wayback/",
+      "githubRepoUrl": ""
+    },
+    {
+      "title": "Wildfire Map",
+      "description": "Active wildfires in the United States using Firefly symbology",
+      "screenshot": "wildfire.png",
+      "url": "https://vannizhang.github.io/wildfire-viz-app/#",
+      "githubRepoUrl": ""
+    },
+    {
       "title": "NYC Cab Rides Map",
       "description": "Visualize the locations where the most New York cab rides begin, the pick-up locations where cab drivers can expect the largest tips, where in the city passengers pay in cash & where they pay by credit, the number of passengers and the length of journeys.",
       "screenshot": "cab-rides.png",

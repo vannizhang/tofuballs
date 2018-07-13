@@ -1,5 +1,10 @@
 $( document ).ready(function() {
 
+    let map = null;
+    let pointsLayer = null;
+
+    const dataJsonFilePath = 'js/data.json?' + Date.now();
+
     //define values needed to initiate map object
     const mapInitOptions = {
         leafletOptions: {
@@ -13,9 +18,6 @@ $( document ).ready(function() {
         defaultCenter: [-33.8553, 18.4839],
         defaultZoom: 12
     };
-
-    let map = null;
-    let pointsLayer = null;
 
     const initMap = (function(){
         map = L.map('map', mapInitOptions.leafletOptions).setView(mapInitOptions.defaultCenter, mapInitOptions.defaultZoom);
@@ -97,7 +99,7 @@ $( document ).ready(function() {
         $('.portfolio-container').html(arrOfHtmlStrForPortfolioItems.join(''));
     }
 
-    $.getJSON( "js/data.json", function( data ) {
+    $.getJSON(dataJsonFilePath, function( data ) {
         populatePortfolio(data["portfolio-data"]);
         populatePoints(data["map-data"]);
     });
