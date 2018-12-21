@@ -1,78 +1,78 @@
 $( document ).ready(function() {
 
-    let map = null;
-    let pointsLayer = null;
+    // let map = null;
+    // let pointsLayer = null;
 
     const dataJsonFilePath = 'js/data.json?' + Date.now();
 
-    //define values needed to initiate map object
-    const mapInitOptions = {
-        leafletOptions: {
-            touchZoom: true, 
-            zoomControl:false, 
-            dragging: true, 
-            attributionControl: false, 
-            scrollWheelZoom: false, 
-            doubleClickZoom: true
-        },
-        defaultCenter: [-33.8553, 18.4839],
-        defaultZoom: 12
-    };
+    // //define values needed to initiate map object
+    // const mapInitOptions = {
+    //     leafletOptions: {
+    //         touchZoom: true, 
+    //         zoomControl:false, 
+    //         dragging: true, 
+    //         attributionControl: false, 
+    //         scrollWheelZoom: false, 
+    //         doubleClickZoom: true
+    //     },
+    //     defaultCenter: [-33.8553, 18.4839],
+    //     defaultZoom: 12
+    // };
 
-    const initMap = (function(){
-        map = L.map('map', mapInitOptions.leafletOptions).setView(mapInitOptions.defaultCenter, mapInitOptions.defaultZoom);
+    // const initMap = (function(){
+    //     map = L.map('map', mapInitOptions.leafletOptions).setView(mapInitOptions.defaultCenter, mapInitOptions.defaultZoom);
 
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
-            attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
-            maxZoom: 16
-        }).addTo(map);
+    //     L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}', {
+    //         attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ',
+    //         maxZoom: 16
+    //     }).addTo(map);
 
-        L.control.zoom({position: 'topright'}).addTo(map);
-    })();
+    //     L.control.zoom({position: 'topright'}).addTo(map);
+    // })();
 
-    const zoomToPointFeature =  function(d){
-        pointsLayer.eachLayer(function(layer){
-            if (layer.feature.properties.name === d) {
-                layer.openPopup();
-                map.setView(layer.getLatLng());
-            } else {
-                layer.closePopup();
-            }
-        });
-    }
+    // const zoomToPointFeature =  function(d){
+    //     pointsLayer.eachLayer(function(layer){
+    //         if (layer.feature.properties.name === d) {
+    //             layer.openPopup();
+    //             map.setView(layer.getLatLng());
+    //         } else {
+    //             layer.closePopup();
+    //         }
+    //     });
+    // }
 
-    function populatePoints(data){
+    // function populatePoints(data){
         
-        const pointMarkerOptions = {
-            radius: 7,
-            fillColor: "#247BA0",
-            color: "white",
-            weight: 2,
-            opacity: 1,
-            fillOpacity: 0.9
-        };
+    //     const pointMarkerOptions = {
+    //         radius: 7,
+    //         fillColor: "#247BA0",
+    //         color: "white",
+    //         weight: 2,
+    //         opacity: 1,
+    //         fillOpacity: 0.9
+    //     };
 
-        const onEachFeature = function(feature, layer) {
-            var content = '<div class="post-container">'+              
-                '<div class="post-thumb"><img src="'+feature.properties.imglink+'"></div>'+
-                '<div class="post-content">'+
-                    '<p><b>' + feature.properties.name + '</b>'+'<br>' + feature.properties.content + '</p>'+
-                '</div>'
+    //     const onEachFeature = function(feature, layer) {
+    //         var content = '<div class="post-container">'+              
+    //             '<div class="post-thumb"><img src="'+feature.properties.imglink+'"></div>'+
+    //             '<div class="post-content">'+
+    //                 '<p><b>' + feature.properties.name + '</b>'+'<br>' + feature.properties.content + '</p>'+
+    //             '</div>'
     
-            if (feature.properties) {
-                layer.bindPopup(content);
-            }
-        }
+    //         if (feature.properties) {
+    //             layer.bindPopup(content);
+    //         }
+    //     }
 
-        pointsLayer = L.geoJson(data,{
-            onEachFeature: onEachFeature,
-            pointToLayer: function (feature, latlng) {
-                return L.circleMarker(latlng, pointMarkerOptions);
-            }
-        }).addTo(map);
+    //     pointsLayer = L.geoJson(data,{
+    //         onEachFeature: onEachFeature,
+    //         pointToLayer: function (feature, latlng) {
+    //             return L.circleMarker(latlng, pointMarkerOptions);
+    //         }
+    //     }).addTo(map);
 
-        zoomToPointFeature('Esri');
-    }
+    //     zoomToPointFeature('Esri');
+    // }
 
     function populatePortfolio(data){
         const arrOfHtmlStrForPortfolioItems = data.map(function(d, i){
@@ -101,12 +101,12 @@ $( document ).ready(function() {
 
     $.getJSON(dataJsonFilePath, function( data ) {
         populatePortfolio(data["portfolio-data"]);
-        populatePoints(data["map-data"]);
+        // populatePoints(data["map-data"]);
     });
 
-    $(".points-layer").on('mouseover', function(d){
-        zoomToPointFeature($(this).attr('value'));
-    });
+    // $(".points-layer").on('mouseover', function(d){
+    //     zoomToPointFeature($(this).attr('value'));
+    // });
 
     /* util functions */
 
