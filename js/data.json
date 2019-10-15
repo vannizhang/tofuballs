@@ -1,6 +1,20 @@
 {
   "portfolio-data": [
     {
+      "title": "Sea Ice",
+      "description": "This app displays the monthly mean sea ice extent for the Arctic and Antarctic along with the historical median extent. Additionally, graphs are used to visualize the minimum and maximum extent for each year (top), and the monthly time series for each year (bottom). Use the top graph to select specific years to display in the map.",
+      "screenshot": "sea-ice.png",
+      "url": "https://livingatlas.arcgis.com/sea-ice/",
+      "githubRepoUrl": ""
+    },
+    {
+      "title": "Hurricane Aware ",
+      "description": "This application provides hurricane forecast and demographic impact information for the contiguous U.S.",
+      "screenshot": "hurricane.png",
+      "url": "https://livingatlas.arcgis.com/hurricane/",
+      "githubRepoUrl": ""
+    },
+    {
       "title": "World Imagery Wayback",
       "description": "<a href='https://www.esri.com/arcgis-blog/products/arcgis-living-atlas/imagery/wayback-81-flavors-of-world-imagery/' target='_blank'>Wayback imagery</a> is a digital archive of Esri's World Imagery basemap, enabling users to access all versions of World Imagery captured since 2014. This app offers a dynamic Wayback browsing experience where previous World Imagery versions are presented within the map, along a timeline, and as a list",
       "screenshot": "wayback.png",
@@ -32,7 +46,7 @@
       "title": "LEGO-IFER",
       "description": "The LEGO-IFER is a simple but essential tool for turning the world into a Lego-ified map, a map consisting entirely of colored plastic bricks",
       "screenshot": "lego.png",
-      "url": "https://adventuresinmapping.github.io/lego-map/",
+      "url": "https://adventuresinmapping.github.io/brick-map/",
       "githubRepoUrl": ""
     },
     {
