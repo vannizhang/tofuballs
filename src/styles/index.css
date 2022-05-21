@@ -3,5 +3,10 @@
 @tailwind utilities;
 
 body {
+    font-family: 'Inter', sans-serif;
     @apply bg-gray-50 text-gray-700;
+}
+
+a {
+    @apply text-gray-500 underline;
 }

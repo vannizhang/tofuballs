@@ -14,7 +14,7 @@ import {
 const Layout = () => {
   return (
     <div
-        className='container mx-auto max-w-2xl mt-24'
+        className='container mx-auto max-w-3xl px-3 md:px-0 mt-24'
     >
         <Header />
         

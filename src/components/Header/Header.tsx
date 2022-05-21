@@ -21,6 +21,7 @@ const Header = () => {
 
       return (
         <NavLink
+          key={label}
           to={path}
           className={'mx-1'}
         >
@@ -33,8 +34,8 @@ const Header = () => {
   return (
     <div className='flex mb-8 justify-between'>
         <div>
-            <h4 className='font-bold text-4xl text-gray-800'>Jinnan Zhang</h4>
-            <h5 className='mt-2'>Senior Web Developer at <a className=' underline' href="//esri.com" target='_blank'>Esri</a></h5>
+            <h4 className='font-bold text-2xl md:text-4xl text-gray-900'>Jinnan Zhang</h4>
+            <p className='mt-3 text-sm md:text-base'>Senior Web Developer at <a className=' underline' href="//esri.com" target='_blank'>Esri</a></p>
         </div>
         
         <div>

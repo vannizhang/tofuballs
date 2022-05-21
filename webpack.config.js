@@ -43,7 +43,18 @@ module.exports =  (env, options)=> {
                 {
                     test: /\.css$/i,
                     include: path.resolve(__dirname, 'src'),
-                    use: ['style-loader', 'css-loader', 'postcss-loader'],
+                    use: [
+                        devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+                        {
+                            loader: "css-loader", 
+                            options: {
+                                sourceMap: true
+                            }
+                        }, 
+                        {
+                            loader: 'postcss-loader'
+                        }
+                    ],
                 },
                 { test: /\.(woff|ttf|eot)$/, loader: "file-loader" },
                 { test: /\.(png|jpg|gif|svg)$/,  loader: "file-loader" },
@@ -86,7 +97,8 @@ module.exports =  (env, options)=> {
                     removeScriptTypeAttributes     : true,
                     removeStyleLinkTypeAttributese : true,
                     useShortDoctype                : true
-                }
+                },
+                favicon: './public/avatar.jpg'
             }),
             !devMode ? new CleanWebpackPlugin() : false,
             // !devMode ? new BundleAnalyzerPlugin() : false
