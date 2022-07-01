@@ -38,9 +38,9 @@ const Header = () => {
             <p className='mt-3 text-sm md:text-base'>Senior Web Developer at <a className=' underline' href="//esri.com" target='_blank'>Esri</a></p>
         </div>
         
-        <div>
+        {/* <div>
             { getNavLinks() }
-        </div>
+        </div> */}
     </div>
   )
 }
