@@ -5,9 +5,25 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #fcfcfc;
-    @apply text-gray-900;
+    @apply text-gray-800 text-sm;
 }
 
 a {
     @apply text-gray-500 underline;
+}
+
+p {
+    @apply mb-4;
+}
+
+ul {
+    @apply list-inside;
+}
+
+li {
+    @apply list-disc mb-3;
+}
+
+li::marker {
+    @apply text-gray-300;
 }

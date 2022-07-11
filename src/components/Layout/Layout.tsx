@@ -1,8 +1,8 @@
 import React, { FC } from 'react'
 
-import { 
-  Routes, Route
-} from 'react-router'
+// import { 
+//   Routes, Route
+// } from 'react-router'
 
 import {
   About,
@@ -17,11 +17,13 @@ const Layout = () => {
         className='container mx-auto max-w-3xl px-3 md:px-0 mt-24'
     >
         <Header />
-        
-        <Routes>
+
+        <About />
+        <Works />
+        {/* <Routes>
           <Route path='/' element={<About />}/>
           <Route path='/works' element={<Works />}/>
-        </Routes>
+        </Routes> */}
         
         <Footer />
     </div>

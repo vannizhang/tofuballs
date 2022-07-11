@@ -35,7 +35,9 @@ const Header = () => {
     <div className='flex mb-8 justify-between'>
         <div>
             <h4 className='font-bold text-2xl md:text-4xl text-gray-900'>Jinnan Zhang</h4>
-            <p className='mt-3 text-sm md:text-base'>Senior Web Developer at <a className=' underline' href="//esri.com" target='_blank'>Esri</a></p>
+            <div className='mt-2'>
+              <span className='text-sm md:text-base'>Senior Web Developer at <a className=' underline' href="//esri.com" target='_blank'>Esri</a></span>
+            </div>
         </div>
         
         {/* <div>
