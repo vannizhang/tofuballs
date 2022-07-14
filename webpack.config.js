@@ -2,11 +2,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const CompressionPlugin = require("compression-webpack-plugin");
 
 module.exports =  (env, options)=> {
 
@@ -20,6 +19,7 @@ module.exports =  (env, options)=> {
             path: path.resolve(__dirname, './dist'),
             filename: '[name].[contenthash].js',
             chunkFilename: '[name].[contenthash].js',
+            clean: true
         },
         devtool: 'source-map',
         resolve: {
@@ -100,8 +100,7 @@ module.exports =  (env, options)=> {
                 },
                 favicon: './public/avatar.jpg'
             }),
-            !devMode ? new CleanWebpackPlugin() : false,
-            // !devMode ? new BundleAnalyzerPlugin() : false
+            new CompressionPlugin()
         ].filter(Boolean),
         optimization: {
             splitChunks: {
