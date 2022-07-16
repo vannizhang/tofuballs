@@ -6,7 +6,7 @@ const Works = () => {
     <div className='mt-8 border-b border-gray-200 dark:border-slate-600 pb-10'>
       <div>
         <h5 className='font-semibold text-lg mb-4'>Work:</h5>
-        <ul>
+        <ul className='list-outside pl-4'>
           <li>
             <a href='https://livingatlas.arcgis.com/wayback/' target='_blank'>World Imagery Wayback</a> - explore, compare and start using all different versions of World Imagery Basemap released since 2014.
           </li>
@@ -30,12 +30,13 @@ const Works = () => {
           <li>
             <a href='https://livingatlas.arcgis.com/sea-ice/' target='_blank'>Sea Ice Aware</a>, <a href='https://livingatlas.arcgis.com/airquality/' target='_blank'>Air Quality Aware</a>, <a href='https://livingatlas.arcgis.com/hurricane/' target='_blank'>Hurricane Aware</a> and <a href='https://livingatlas.arcgis.com/wildfire/#@=-106.823,34.614,5' target='_blank'>USA Wildfires</a> - easy-to-use applications that try to simplify access to environmental and demographic information.
           </li>
+
+          <li>
+            <a href='https://adventuresinmapping.com/2016/08/30/photochrome-io/' target='_blank'>photochrome.io</a>, <a href='https://vannizhang.github.io/wonder/' target='_blank'>the United States of Wonder</a>, <a href='https://vannizhang.github.io/lego-map/' target='_blank'>BRICK-IFIER</a>, <a href='https://vannizhang.github.io/birdeye-view/dist/' target='_blank'>Birds-eye view map</a>, <a href='https://vannizhang.github.io/migration_flow_map/' target='_blank'>County-to-County Migration Flows</a> - some side projects that I worked on long time ago (when jQuery was still my first choice library).
+          </li>
         </ul>
       </div>
 
-      <div className='mt-4'>
-        <p>Here are some side projects that I worked on long time ago (when jQuery was still my first choice library): <a href='https://adventuresinmapping.com/2016/08/30/photochrome-io/' target='_blank'>photochrome.io</a>, <a href='https://vannizhang.github.io/wonder/' target='_blank'>the United States of Wonder</a>, <a href='https://vannizhang.github.io/lego-map/' target='_blank'>BRICK-IFIER</a>, <a href='https://vannizhang.github.io/birdeye-view/dist/' target='_blank'>Birds-eye view map</a>, <a href='https://vannizhang.github.io/migration_flow_map/' target='_blank'>County-to-County Migration Flows</a>. </p>
-      </div>
     </div>
   )
 }
