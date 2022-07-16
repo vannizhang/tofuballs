@@ -5,11 +5,11 @@
 body {
     font-family: 'Inter', sans-serif;
     background-color: #fcfcfc;
-    @apply text-gray-800 text-sm;
+    @apply text-sm leading-6 text-slate-800 dark:bg-slate-800 dark:text-slate-400;
 }
 
 a {
-    @apply text-gray-500 underline;
+    @apply text-slate-600 hover:text-slate-700 dark:text-slate-300 hover:dark:text-slate-200 underline;
 }
 
 p {
@@ -25,5 +25,5 @@ li {
 }
 
 li::marker {
-    @apply text-gray-300;
+    @apply text-gray-300 dark:text-slate-600;
 }

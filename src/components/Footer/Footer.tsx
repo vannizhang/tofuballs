@@ -2,14 +2,11 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <>
-      <hr className='mt-10' />
-      <div className='text-center my-10 text-sm'>
-          <a className='mr-4' href='mailto:vannizhang@gmail.com'>Email</a>
-          <a className='mr-4' href='https://github.com/vannizhang'>Github</a>
-          <a href='https://www.linkedin.com/in/jinnan-zhang-044a7123/'>LinkedIn</a>
-      </div>
-    </>
+    <div className='text-center my-16 text-sm'>
+      <a className='mr-4' href='mailto:vannizhang@gmail.com'>Email</a>
+      <a className='mr-4' href='https://github.com/vannizhang'>Github</a>
+      <a href='https://www.linkedin.com/in/jinnan-zhang-044a7123/'>LinkedIn</a>
+    </div>
   )
 }
 

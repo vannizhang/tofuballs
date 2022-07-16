@@ -8,24 +8,26 @@ import {
   About,
   Works,
   Header,
-  Footer
+  Footer,
+  DarkModeToggle
 } from '..'
 
 const Layout = () => {
   return (
     <div
-        className='container mx-auto max-w-3xl px-3 md:px-0 mt-24'
+        className='container mx-auto max-w-3xl px-3 md:px-0'
     >
-        <Header />
+        <div className='mt-6 text-right'>
+          <DarkModeToggle />
+        </div>
 
-        <About />
-        <Works />
-        {/* <Routes>
-          <Route path='/' element={<About />}/>
-          <Route path='/works' element={<Works />}/>
-        </Routes> */}
-        
-        <Footer />
+        <div className='mt-20'>
+          <Header />
+          <About />
+          <Works />
+          <Footer />
+        </div>
+
     </div>
   )
 }

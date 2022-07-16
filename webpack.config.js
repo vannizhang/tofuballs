@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssets = require('optimize-css-assets-webpack-plugin');
 const CompressionPlugin = require("compression-webpack-plugin");
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 
 module.exports =  (env, options)=> {
 
@@ -126,7 +126,7 @@ module.exports =  (env, options)=> {
                         }
                     }
                 }), 
-                new OptimizeCSSAssets({})
+                new CssMinimizerPlugin()
             ]
         }
     }
