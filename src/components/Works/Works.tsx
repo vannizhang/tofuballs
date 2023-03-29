@@ -12,6 +12,14 @@ const Works = () => {
           </li>
 
           <li>
+            <a href='https://livingatlas.arcgis.com/landcoverexplorer/' target='_blank'>Sentinel-2 Land Cover Explorer</a> - Explore land cover change using Sentinel-2 10m Land Use/Land Cover data.
+          </li>
+
+          <li>
+            <a href='https://livingatlas.arcgis.com/emu/' target='_blank'>Ecological Marine Unit Explorer</a> - portrays a 3-dimensional classification of physiographic and ecological information about ocean water.
+          </li>
+
+          <li>
             <a href='https://livingatlas.arcgis.com/policy/browse/' target='_blank'>Esri Maps for Public Policy</a> - provides map-based data on community issues such as health, housing, and jobs to support nonprofit planning and action. 
           </li>
 
