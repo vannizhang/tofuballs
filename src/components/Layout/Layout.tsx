@@ -9,7 +9,7 @@ import {
   Works,
   Header,
   Footer,
-  DarkModeToggle,
+  SiteNav,
   // DarkModeToggle
 } from '..'
 
@@ -24,11 +24,15 @@ const Layout:FC<Props> = ({
     <div
         className='container mx-auto max-w-3xl px-3 md:px-0'
     >
-        <div className='mt-6 text-right'>
-          <DarkModeToggle />
-        </div>
+        <SiteNav />
+
+        <div style={{
+          minHeight: '75vh'
+        }}>
           { children }
-          <Footer />
+        </div>
+          
+        <Footer />
     </div>
   )
 }
