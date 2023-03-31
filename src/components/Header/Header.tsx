@@ -34,10 +34,6 @@ const Header = () => {
 
   return (
     <>
-      <div className='mt-6 text-right'>
-        <DarkModeToggle />
-      </div>
-
       <div className='flex mb-8 justify-between mt-16'>
           <div>
               <h4 className='font-bold text-2xl md:text-4xl dark:text-white'>Jinnan Zhang</h4>

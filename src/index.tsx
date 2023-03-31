@@ -2,14 +2,9 @@ import './styles/index.css';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Layout } from './components';
-import { HashRouter } from "react-router-dom";
+import Home from './pages/home';
 
 ReactDOM.render(
-    <React.StrictMode>
-        <HashRouter>
-            <Layout />
-        </HashRouter>
-    </React.StrictMode>,
+    <Home />,
     document.getElementById('root')
 );

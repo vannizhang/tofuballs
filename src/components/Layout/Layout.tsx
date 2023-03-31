@@ -9,17 +9,25 @@ import {
   Works,
   Header,
   Footer,
+  DarkModeToggle,
   // DarkModeToggle
 } from '..'
 
-const Layout = () => {
+type Props = {
+  children?:React.ReactNode;
+}
+
+const Layout:FC<Props> = ({
+  children
+}) => {
   return (
     <div
         className='container mx-auto max-w-3xl px-3 md:px-0'
     >
-          <Header />
-          <About />
-          <Works />
+        <div className='mt-6 text-right'>
+          <DarkModeToggle />
+        </div>
+          { children }
           <Footer />
     </div>
   )
