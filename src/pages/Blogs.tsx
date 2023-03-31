@@ -1,7 +1,8 @@
+import '../styles/Blog.css'
 import React, { useEffect, useState } from 'react'
 import { Layout } from '../components'
 import { Link } from "react-router-dom";
-import { format} from 'date-fns'
+import { format } from 'date-fns'
 
 type BlogPost = {
     /**
@@ -63,6 +64,7 @@ const Blogs = () => {
                 ? (
                     blogs.map(data=>{
                         const { fileName, lastModified } = data;
+
                         console.log(lastModified)
                         const [ name ] = fileName.split('.');
                         return (

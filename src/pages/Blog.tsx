@@ -1,4 +1,3 @@
-import './Blog.css'
 import React, { useEffect, useState } from 'react'
 import { Layout } from '../components'
 import { useNavigate, useLocation } from "react-router-dom";
@@ -51,32 +50,34 @@ const Blog = () => {
 
     return (
         <Layout>
-            <ReactMarkdown
-                /**
-                 * Use SyntaxHighlighter to overwrite the default way of handling syntax highlight
-                 * @see https://github.com/remarkjs/react-markdown#use-custom-components-syntax-highlight
-                 */
-                components={{
-                    code({node, inline, className, children, ...props}) {
-                      const match = /language-(\w+)/.exec(className || '')
-                      return !inline && match ? (
-                        <SyntaxHighlighter
-                          children={String(children).replace(/\n$/, '')}
-                          style={vscDarkPlus as any}
-                          language={match[1]}
-                          PreTag="div"
-                          {...props}
-                        />
-                      ) : (
-                        <code className={className} {...props}>
-                          {children}
-                        </code>
-                      )
-                    }
-                  }}
-            >
-                {markdown}
-            </ReactMarkdown>
+            <div className='blog-content'>
+                <ReactMarkdown
+                    /**
+                     * Use SyntaxHighlighter to overwrite the default way of handling syntax highlight
+                     * @see https://github.com/remarkjs/react-markdown#use-custom-components-syntax-highlight
+                     */
+                    components={{
+                        code({node, inline, className, children, ...props}) {
+                        const match = /language-(\w+)/.exec(className || '')
+                        return !inline && match ? (
+                            <SyntaxHighlighter
+                            children={String(children).replace(/\n$/, '')}
+                            style={vscDarkPlus as any}
+                            language={match[1]}
+                            PreTag="div"
+                            {...props}
+                            />
+                        ) : (
+                            <code className={className} {...props}>
+                            {children}
+                            </code>
+                        )
+                        }
+                    }}
+                >
+                    {markdown}
+                </ReactMarkdown>
+            </div>
         </Layout>
     )
 }
