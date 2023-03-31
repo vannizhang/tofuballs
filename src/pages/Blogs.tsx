@@ -60,6 +60,14 @@ const Blogs = () => {
 
     return (
         <Layout>
+            <div className='lg:flex justify-between mb-8'>
+                <h3 className='text-3xl font-bold mb-4'>Blog Posts</h3>
+
+                <p className='lg:w-2/3 text-sm'>
+                    Here is Jinnan's technical blog, where I will occasionally share some content related to front-end development, web mapping, and GIS. Some of the content may be notes I've taken while solving technical problems, while others may be my random thoughts. Most of the content may not have much practical value, and some of it may seem stupid to you. Therefore, please think twice before clicking on the links below:
+                </p>
+            </div>
+
             { blogs 
                 ? (
                     blogs.map(data=>{
