@@ -26,9 +26,7 @@ const Layout:FC<Props> = ({
     >
         <SiteNav />
 
-        <div style={{
-          minHeight: '75vh'
-        }}>
+        <div>
           { children }
         </div>
           
