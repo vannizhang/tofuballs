@@ -1,13 +1,13 @@
 .blog-content h1 {
-    @apply text-4xl mb-4;
+    @apply text-4xl mb-8;
 }
 
 .blog-content h2 {
-    @apply text-2xl mb-3;
+    @apply text-3xl mb-4;
 }
 
 .blog-content h3 {
-    @apply text-xl mb-2;
+    @apply text-2xl mb-2;
 }
 
 .blog-content hr {

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const STORAGE_KEY_DARK_MODE_PREFERENCE = `USE_DARK_MODE`;
+const STORAGE_KEY_DARK_MODE_PREFERENCE = `TOFUBALLS.COM_DARK_MODE_ON`;
 const STORAGE_VALUE_DARK_MODE_PREFERENCE = `true`;
 
 const DarkModeToggle = () => {
