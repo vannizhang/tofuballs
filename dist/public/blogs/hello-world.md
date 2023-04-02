@@ -1,4 +1,4 @@
-## Hello World
+# Hello World
 
 I've always felt that I should have a personal technical blog, but I have been procrastinating and delaying taking action.
 
