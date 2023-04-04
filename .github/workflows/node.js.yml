@@ -28,3 +28,7 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run build --if-present
+    # Clean up files in Destination folder
+    - run: sudo rm -r ${{secrets.COPY_TO_FOLDER}}
+    # Copy folder to where nginx expects it to be
+    - run: sudo cp -r ${{secrets.COPY_FROM_FOLDER}} ${{secrets.COPY_TO_FOLDER}}
