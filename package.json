@@ -48,6 +48,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "populateBlogsList": "node ./scripts/populateBlogsList.js",
+    "prestart": "npm run populateBlogsList",
+    "prebuild": "npm run populateBlogsList",
     "start": "webpack serve --mode development --open",
     "dev": "webpack --mode development",
     "build": "webpack --mode production"

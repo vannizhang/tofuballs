@@ -54,9 +54,9 @@ const Blogs = () => {
         })()
     }, [])
 
-    if(!blogs){
-        return null
-    }
+    // if(!blogs){
+    //     return null
+    // }
 
     return (
         <Layout>
