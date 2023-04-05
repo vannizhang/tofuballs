@@ -5,6 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {vscDarkPlus} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { format } from 'date-fns';
+import { BLOG_POSTS_DIRECTORY } from '../constants';
 
 const BLOG_CONTENT_CONTAINER_CLASSNAME = `blog-content`
 
@@ -65,7 +66,7 @@ const BlogPost = () => {
             const fileName = paths.pop();
 
             try {
-                const res = await fetch(`/public/blog/${fileName}.md`);
+                const res = await fetch(`${BLOG_POSTS_DIRECTORY}/${fileName}.md`);
 
                 if(res.status === 404){
                     throw new Error('not found');

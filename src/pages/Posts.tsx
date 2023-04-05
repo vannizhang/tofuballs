@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Layout } from '../components'
 import { Link } from "react-router-dom";
 import { format } from 'date-fns'
+import { BLOG_POSTS_DATA, BLOG_POSTS_DIRECTORY } from '../constants';
 
 type BlogPost = {
     /**
@@ -48,7 +49,7 @@ const BlogPosts = () => {
 
     useEffect(()=>{
         (async()=>{
-            const res = await fetch('/public/blog/data.json')
+            const res = await fetch(`${BLOG_POSTS_DATA}`)
             const data = await res.json()
             setPosts(data);
         })()
@@ -77,7 +78,7 @@ const BlogPosts = () => {
                             > 
                                 <Link className='text-lg' to={`/blog/${name}`}>{formatBlogPostName(name)}</Link>
                                 <br />
-                                <span className='text-sm opacity-60'>{format(lastModified, 'MMM-dd, yyyy')}</span>
+                                <span className='text-sm opacity-60'>{format(lastModified, 'yyyy-MM-dd')}</span>
                             </div>
                         )
                     })
