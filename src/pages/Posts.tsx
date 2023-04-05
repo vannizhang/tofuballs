@@ -6,7 +6,7 @@ import { format } from 'date-fns'
 
 type BlogPost = {
     /**
-     * name of the markdown file (saved in `/public/blogs/`) for this blog post (e.g. `hello-world.md`)
+     * name of the markdown file (saved in `/public/blog/`) for this blog post (e.g. `hello-world.md`)
      */
     fileName: string;
     /**
@@ -42,21 +42,17 @@ const formatBlogPostName = (fileName:string):string=>{
     return output.join(' ')
 }
 
-const Blogs = () => {
+const BlogPosts = () => {
 
-    const [blogs, setBlogs] = useState<BlogPost[]>()
+    const [posts, setPosts] = useState<BlogPost[]>()
 
     useEffect(()=>{
         (async()=>{
-            const res = await fetch('/public/blogs/data.json')
+            const res = await fetch('/public/blog/data.json')
             const data = await res.json()
-            setBlogs(data);
+            setPosts(data);
         })()
     }, [])
-
-    // if(!blogs){
-    //     return null
-    // }
 
     return (
         <Layout>
@@ -68,9 +64,9 @@ const Blogs = () => {
                 </p>
             </div>
 
-            { blogs 
+            { posts 
                 ? (
-                    blogs.map(data=>{
+                    posts.map(data=>{
                         const { fileName, lastModified } = data;
 
                         console.log(lastModified)
@@ -94,4 +90,4 @@ const Blogs = () => {
     )
 }
 
-export default Blogs
+export default BlogPosts

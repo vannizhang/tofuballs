@@ -8,7 +8,7 @@ import { format } from 'date-fns';
 
 const BLOG_CONTENT_CONTAINER_CLASSNAME = `blog-content`
 
-const Blog = () => {
+const BlogPost = () => {
 
     const navigate = useNavigate();
 
@@ -65,7 +65,7 @@ const Blog = () => {
             const fileName = paths.pop();
 
             try {
-                const res = await fetch(`/public/blogs/${fileName}.md`);
+                const res = await fetch(`/public/blog/${fileName}.md`);
 
                 if(res.status === 404){
                     throw new Error('not found');
@@ -122,4 +122,4 @@ const Blog = () => {
     )
 }
 
-export default Blog
+export default BlogPost

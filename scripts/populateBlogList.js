@@ -4,16 +4,16 @@ const path = require('path')
 /**
  * directory of where the blog markdown files are saved 
  */
-const blogsDir = path.join(__dirname, '..', 'public', 'blogs');
+const blogDir = path.join(__dirname, '..', 'public', 'blog');
 
 /**
- * name of the JSON file that contains a list of blogs
+ * name of the JSON file that contains a list of blog
  */
 const OUTPUT_JSON_FILE_NAME = `data.json`;
 
 /**
- * Iterate through all files from the `/public/blogs` directory and 
- * generate `data.json` file that contains all blog posts to be shown on the blogs page
+ * Iterate through all files from the `/public/blog` directory and 
+ * generate `data.json` file that contains all blog posts to be shown on the blog page
  */
 const start = ()=>{
 
@@ -33,8 +33,8 @@ const start = ()=>{
      */
     const output = [];
 
-    // get all files from blogs directory
-    const items = fs.readdirSync(blogsDir)
+    // get all files from blog directory
+    const items = fs.readdirSync(blogDir)
 
     for(const item of items){
         // only handle markdown files that the name is not 'example.md'
@@ -44,7 +44,7 @@ const start = ()=>{
 
         const {
             mtime
-        } = fs.statSync(`${blogsDir}/${item}`)
+        } = fs.statSync(`${blogDir}/${item}`)
 
         output.push({
             fileName: item,
@@ -53,11 +53,11 @@ const start = ()=>{
     }
 
     // sort items using the last modified date in a descending order 
-    // so the most recent blogs will alway be on the top of the list
+    // so the most recent blog will alway be on the top of the list
     output.sort((a,b)=>b.lastModified - a.lastModified)
 
     fs.writeFileSync(
-        `${blogsDir}/${OUTPUT_JSON_FILE_NAME}`, 
+        `${blogDir}/${OUTPUT_JSON_FILE_NAME}`, 
         JSON.stringify(output, null, 4)
     );
 }

@@ -7,8 +7,8 @@ import {
     createHashRouter,
     RouterProvider,
   } from "react-router-dom";
-import Blogs from './pages/Blogs';
-import Blog from './pages/Blog';
+import Posts from './pages/Posts';
+import BlogPost from './pages/Post';
 import NotFound from './pages/NotFound';
 
 const root = createRoot(document.getElementById('root'));
@@ -19,12 +19,12 @@ const router = createHashRouter([
       element: <Home />,
     },
     {
-        path: "/blogs",
-        element: <Blogs />,
+        path: "/blog",
+        element: <Posts />,
     },
     {
         path: "/blog/:id",
-        element: <Blog />,
+        element: <BlogPost />,
     },
     {
         path: "/404",
