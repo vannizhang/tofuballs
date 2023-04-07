@@ -1,39 +1,42 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 const STORAGE_KEY_DARK_MODE_PREFERENCE = `TOFUBALLS.COM_DARK_MODE_ON`;
 const STORAGE_VALUE_DARK_MODE_PREFERENCE = `true`;
 
 const DarkModeToggle = () => {
     const [darkModeOn, setDarkModeOn] = useState(
-        localStorage.getItem(STORAGE_KEY_DARK_MODE_PREFERENCE) === STORAGE_VALUE_DARK_MODE_PREFERENCE
-    )
+        localStorage.getItem(STORAGE_KEY_DARK_MODE_PREFERENCE) ===
+            STORAGE_VALUE_DARK_MODE_PREFERENCE
+    );
 
-    useEffect(()=>{
+    useEffect(() => {
         const root = document.getElementsByTagName('html')[0];
 
-        if(darkModeOn){
+        if (darkModeOn) {
             root.classList.add('dark');
             localStorage.setItem(
-                STORAGE_KEY_DARK_MODE_PREFERENCE, 
+                STORAGE_KEY_DARK_MODE_PREFERENCE,
                 STORAGE_VALUE_DARK_MODE_PREFERENCE
-            )
+            );
         } else {
             root.classList.remove('dark');
-            localStorage.removeItem(STORAGE_KEY_DARK_MODE_PREFERENCE)
+            localStorage.removeItem(STORAGE_KEY_DARK_MODE_PREFERENCE);
         }
-    }, [darkModeOn])
+    }, [darkModeOn]);
 
     return (
         <div>
-            <span 
-                className='cursor-pointer' 
+            <span
+                className="cursor-pointer"
                 onClick={setDarkModeOn.bind(null, !darkModeOn)}
                 title={`turn ${darkModeOn ? 'off' : 'on'} dark mode`}
             >
-                { darkModeOn ? String.fromCodePoint(127774) : String.fromCodePoint(127769) }
+                {darkModeOn
+                    ? String.fromCodePoint(127774)
+                    : String.fromCodePoint(127769)}
             </span>
         </div>
-    )
-}
+    );
+};
 
-export default DarkModeToggle
+export default DarkModeToggle;

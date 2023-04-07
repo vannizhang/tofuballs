@@ -1,21 +1,21 @@
-import React from 'react'
+import React from 'react';
 
 import {
     About,
     Works,
     Header,
-    Layout
+    Layout,
     // DarkModeToggle
-  } from '../components'
+} from '../components';
 
 const Home = () => {
-  return (
-    <Layout>
-        <Header />
-        <About />
-        <Works />
-    </Layout>
-  )
-}
+    return (
+        <Layout>
+            <Header />
+            <About />
+            <Works />
+        </Layout>
+    );
+};
 
-export default Home
+export default Home;
