@@ -4,6 +4,7 @@ import { Layout } from '../components'
 import { Link } from "react-router-dom";
 import { format } from 'date-fns'
 import { BLOG_POSTS_DATA } from '../constants';
+import useBlogPosts from '../hooks/useBlogPosts';
 
 type BlogPost = {
     /**
@@ -45,15 +46,7 @@ const formatBlogPostName = (fileName:string):string=>{
 
 const BlogPosts = () => {
 
-    const [posts, setPosts] = useState<BlogPost[]>()
-
-    useEffect(()=>{
-        (async()=>{
-            const res = await fetch(`${BLOG_POSTS_DATA}`)
-            const data = await res.json()
-            setPosts(data);
-        })()
-    }, [])
+    const posts = useBlogPosts()
 
     return (
         <Layout>

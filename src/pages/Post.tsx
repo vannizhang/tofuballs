@@ -5,7 +5,7 @@ import ReactMarkdown from 'react-markdown'
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {vscDarkPlus} from 'react-syntax-highlighter/dist/esm/styles/prism'
 import { format } from 'date-fns';
-import { BLOG_POSTS_DIRECTORY } from '../constants';
+import useBlogPost from '../hooks/useBlogPost';
 
 const BLOG_CONTENT_CONTAINER_CLASSNAME = `blog-content`
 
@@ -15,22 +15,24 @@ const BlogPost = () => {
 
     const location = useLocation();
 
-    const [markdown, setMarkdown] = useState<string>();
-
-    const [notFound, setNotFound] = useState(false);
-
-    /**
-     * last modified date from response headers
-     */
-    const [lastModified, setLastModified] = useState<string>();
+    const {
+        markdownContent,
+        notFound,
+        blogPostData
+    } = useBlogPost(location)
 
     /**
-     * the markdown content itself dosen't contain last modified date in it.
+     * the markdown content itself dosen't contain creation date in it.
      * 
-     * But we still want to display the last modified date (from response headers) below the title of the blog post.
+     * But we still want to display the creation date below the title of the blog post.
      * and the only way that I can come up with at is appending an element to the title of the blog
      */
-    const insertModifiedDate = ()=>{
+    const insertCreationDate = ()=>{
+
+        const {
+            createdDate
+        } = blogPostData;
+
         // find the first element inside of blog content, which should be the title of the blog
         const title = document.querySelector(`.${BLOG_CONTENT_CONTAINER_CLASSNAME} > :first-child`)
 
@@ -41,11 +43,11 @@ const BlogPost = () => {
         }
 
         // create an element to show the last modified date of this blog post
-        const modifiedDate = document.createElement('div');
-        modifiedDate.className = 'mt-2 mb-4 opacity-70 text-sm font-light'
-        modifiedDate.textContent = format(new Date(lastModified), 'yyyy-MM-dd')
+        const creationDateElem = document.createElement('div');
+        creationDateElem.className = 'mt-2 mb-4 opacity-70 text-sm font-light'
+        creationDateElem.textContent = format(new Date(createdDate), 'yyyy-MM-dd')
 
-        title.append(modifiedDate)
+        title.append(creationDateElem)
     }
 
     useEffect(()=>{
@@ -55,39 +57,10 @@ const BlogPost = () => {
     }, [notFound])
 
     useEffect(()=>{
-        (async()=>{
-
-            const paths = location.pathname.split('/')
-
-            while(!paths[paths.length - 1]){
-                paths.pop();
-            }
-
-            const fileName = paths.pop();
-
-            try {
-                const res = await fetch(`${BLOG_POSTS_DIRECTORY}/${fileName}.md`);
-
-                if(res.status === 404){
-                    throw new Error('not found');
-                }
-
-                const text = await res.text()
-                setMarkdown(text)
-
-                setLastModified(res.headers.get('last-modified'))
-                
-            } catch(err){
-                setNotFound(true)
-            }
-        })()
-    }, [location])
-
-    useEffect(()=>{
-        if(markdown && lastModified){
-            insertModifiedDate();
+        if(markdownContent && blogPostData){
+            insertCreationDate();
         }
-    }, [markdown, lastModified])
+    }, [markdownContent, blogPostData])
 
     return (
         <Layout>
@@ -116,7 +89,7 @@ const BlogPost = () => {
                         }
                     }}
                 >
-                    {markdown}
+                    {markdownContent}
                 </ReactMarkdown>
             </div>
         </Layout>
