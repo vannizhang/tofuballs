@@ -23,6 +23,6 @@ module.exports = {
     ],
     "rules": {
         'prettier/prettier': 'error', // added,
-        "@typescript-eslint/interface-name-prefix": "off"
+        "@typescript-eslint/interface-name-prefix": "off",
     }
 }
