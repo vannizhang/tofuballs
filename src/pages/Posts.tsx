@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Layout } from '../components'
 import { Link } from "react-router-dom";
 import { format } from 'date-fns'
-import { BLOG_POSTS_DATA, BLOG_POSTS_DIRECTORY } from '../constants';
+import { BLOG_POSTS_DATA } from '../constants';
 
 type BlogPost = {
     /**
@@ -11,9 +11,9 @@ type BlogPost = {
      */
     fileName: string;
     /**
-     * last modified time in unix timestamp
+     * created date in unix timestamp
      */
-    lastModified: number;
+    createdDate: number;
 }
 
 /**
@@ -68,9 +68,8 @@ const BlogPosts = () => {
             { posts 
                 ? (
                     posts.map(data=>{
-                        const { fileName, lastModified } = data;
+                        const { fileName, createdDate } = data;
 
-                        console.log(lastModified)
                         const [ name ] = fileName.split('.');
                         return (
                             <div className='mb-4'
@@ -78,7 +77,7 @@ const BlogPosts = () => {
                             > 
                                 <Link className='text-lg' to={`/blog/${name}`}>{formatBlogPostName(name)}</Link>
                                 <br />
-                                <span className='text-sm opacity-60'>{format(lastModified, 'yyyy-MM-dd')}</span>
+                                <span className='text-sm opacity-60'>{format(createdDate, 'yyyy-MM-dd')}</span>
                             </div>
                         )
                     })

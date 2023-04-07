@@ -4,12 +4,50 @@ const path = require('path')
 /**
  * directory of where the blog markdown files are saved 
  */
-const blogDir = path.join(__dirname, '..', 'public', 'blog');
+const BLOG_DIRECTORY_PATH = path.join(__dirname, '..', 'public', 'blog');
 
 /**
- * name of the JSON file that contains a list of blog
+ * path of the JSON file that contains a list of blog
  */
-const OUTPUT_JSON_FILE_NAME = `data.json`;
+const BLOG_JSON_FILE_PATH = path.join(BLOG_DIRECTORY_PATH, 'data.json');
+
+/**
+ * Retrieves the existing blog posts from JSON file located at BLOG_JSON_FILE_PATH.
+ * 
+ * If the JSON file does not exist in the directory, just return an empty array instead.
+ * 
+ * @example
+ * Usage
+ * ```
+ * getExistingBlogPosts()
+ * ```
+ * 
+ * Returns
+ * ```
+ * [
+ *   {
+ *     "fileName": "hello-world.md",
+ *     "createdDate": 1680299193000
+ *   }
+ * ]
+ * 
+ * ```
+ * @returns 
+ */
+const getExistingBlogPosts = ()=>{
+    if(fs.existsSync(BLOG_JSON_FILE_PATH) === false){
+        return [];
+    }
+
+    try {
+        const content = fs.readFileSync(BLOG_JSON_FILE_PATH);
+    
+        return JSON.parse(content);
+
+    } catch(err){
+        return []
+    }
+}
 
 /**
  * Iterate through all files from the `/public/blog` directory and 
@@ -17,48 +55,51 @@ const OUTPUT_JSON_FILE_NAME = `data.json`;
  */
 const start = ()=>{
 
-    /**
-     * array of blog posts info
-     * 
-     * @example
-     * ```
-     * [
-     *   {
-     *     "fileName": "hello-world.md",
-     *     "lastModified": 1680299193000
-     *   }
-     * ]
-     * 
-     * ```
-     */
-    const output = [];
+    // retrieves the existing blog posts from the JSON file located at BLOG_JSON_FILE_PATH
+    let posts = getExistingBlogPosts() || [];
 
-    // get all files from blog directory
-    const items = fs.readdirSync(blogDir)
+    // creates a new array that contains only the names of the files in the existing blog posts.
+    const existingFileNames = posts.map(d=>d.fileName);
 
-    for(const item of items){
+    // retrieves the list of files in the blog directory
+    const files = fs.readdirSync(BLOG_DIRECTORY_PATH)
+
+    // add new files to posts array
+    for(const file of files){
         // only handle markdown files that the name is not 'example.md'
-        if(item.endsWith('.md') === false || item === 'example.md'){
+        if(file.endsWith('.md') === false || file === 'example.md'){
             continue;
         }
 
+        // checks if the name of the current item already exists in the existingFileNames array. If it does, the loop will continue to the next item.
+        if(existingFileNames.includes(file)){
+            continue
+        }
+
+        // retrieves the modified time of the current file
         const {
             mtime
-        } = fs.statSync(`${blogDir}/${item}`)
+        } = fs.statSync(`${BLOG_DIRECTORY_PATH}/${file}`)
 
-        output.push({
-            fileName: item,
-            lastModified: mtime.getTime()
+        posts.push({
+            fileName: file,
+            createdDate: mtime.getTime()
         })
     }
 
-    // sort items using the last modified date in a descending order 
-    // so the most recent blog will alway be on the top of the list
-    output.sort((a,b)=>b.lastModified - a.lastModified)
+    // remove data from posts array if the markdown file associated with it no longer exists 
+    posts = posts.filter(post=>{
+        return files.includes(post.fileName)
+    })
 
+    // sorts the posts array in descending order based on the creation time of each post
+    //  so that the most recent post is at the top of the list.
+    posts.sort((a,b)=>b.createdDate - a.createdDate)
+
+    // writes the updated posts array to a JSON file located at BLOG_JSON_FILE_PATH 
     fs.writeFileSync(
-        `${blogDir}/${OUTPUT_JSON_FILE_NAME}`, 
-        JSON.stringify(output, null, 4)
+        BLOG_JSON_FILE_PATH, 
+        JSON.stringify(posts, null, 4)
     );
 }
 
