@@ -198,10 +198,10 @@ describe('test greeting', () => {
 By including unit tests like this one in our library, we can ensure that our code is functioning correctly and catch any errors or regressions that may arise as we continue to develop and modify our code.
 
 
-## Cleaning the dist folder
+## Build the package
 Before building your package, it is a good practice to clean the `./dist` folder. You can use the `rimraf` package to do this. First, install `rimraf` as a development dependency:
 
-```
+```sh
 npm install rimraf --save-dev
 ```
 
