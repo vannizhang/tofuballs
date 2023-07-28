@@ -1,15 +1,37 @@
 .blog-content h1 {
-    @apply text-4xl mb-8;
+    @apply text-4xl my-8;
 }
 
 .blog-content h2 {
-    @apply text-3xl mb-4;
+    @apply text-3xl my-4 mt-8;
 }
 
 .blog-content h3 {
-    @apply text-2xl mb-2;
+    @apply text-2xl my-2 mt-4;
 }
 
 .blog-content hr {
     @apply my-6;
+}
+
+.blog-content h1 code,
+.blog-content h2 code,
+.blog-content h3 code,
+.blog-content h4 code,
+.blog-content h5 code,
+.blog-content p code,
+.blog-content li code
+{
+    @apply bg-gray-200 px-1;
+}
+
+.dark .blog-content h1 code,
+.dark .blog-content h2 code,
+.dark .blog-content h3 code,
+.dark .blog-content h4 code,
+.dark .blog-content h5 code,
+.dark .blog-content p code,
+.dark .blog-content li code
+{
+    @apply bg-gray-900 px-1;
 }

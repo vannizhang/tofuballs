@@ -37,7 +37,7 @@ const formatBlogPostName = (fileName: string): string => {
     const output: string[] = [];
 
     for (const w of words) {
-        const formattedWord = w[0].toUpperCase() + w.slice(1).toLowerCase();
+        const formattedWord = w[0].toUpperCase() + w.slice(1);
         output.push(formattedWord);
     }
 
