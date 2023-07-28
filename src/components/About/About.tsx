@@ -26,8 +26,12 @@ const About = () => {
             </p>
 
             <p>
-                Currently, I&#39;m having fun experimenting with the MERN stack
-                and exploring different ways to optimize front-end performance.
+                Currently, I&#39;m working on a{' '}
+                <a href="https://github.com/vannizhang/react-d3-charts">
+                    UI library
+                </a>{' '}
+                that can be used to create simple charts with D3, React and
+                TypeScript.
             </p>
         </div>
     );
