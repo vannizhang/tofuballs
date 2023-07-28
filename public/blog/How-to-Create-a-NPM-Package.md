@@ -146,22 +146,8 @@ export const greeting = (name:string):string=>{
 }
 ```
 
-It is good practice to add unit tests to our library. Here is an example of a unit test file located at `./src/greeting/index.test.ts`:
-
-```js
-import { greeting } from '.';
-
-describe('test greeting', () => {
-    it('should return correct greeting message', () => {
-        expect(greeting('vannizhang')).toBe('hello vannizhang');
-    });
-});
-```
-
-By including unit tests like this one in our library, we can ensure that our code is functioning correctly and catch any errors or regressions that may arise as we continue to develop and modify our code.
-
 ## Setting up Jest
-Jest is well-suited for testing the functionality of your NPM package. It allows you to write unit tests, integration tests, and snapshot tests to ensure that your package behaves as expected.
+It is good practice to add unit tests to our library. Jest is well-suited for testing the functionality of your NPM package. It allows you to write unit tests, integration tests, and snapshot tests to ensure that your package behaves as expected.
 
 To set up Jest for testing your TypeScript code, you can follow these steps:
 ```sh
@@ -196,6 +182,21 @@ To run the tests using Jest, you can add a `test` script to the `package.json` f
 ```
 
 This script tells NPM to run Jest with the configuration file that we created earlier. To run the tests, you can now simply execute `npm run test` in your terminal.
+
+Here is an example of a unit test that we can create for the `greeting` function that we created in the previous section:
+
+```js
+import { greeting } from '.';
+
+describe('test greeting', () => {
+    it('should return correct greeting message', () => {
+        expect(greeting('vannizhang')).toBe('hello vannizhang');
+    });
+});
+```
+
+By including unit tests like this one in our library, we can ensure that our code is functioning correctly and catch any errors or regressions that may arise as we continue to develop and modify our code.
+
 
 ## Cleaning the dist folder
 Before building your package, it is a good practice to clean the `./dist` folder. You can use the `rimraf` package to do this. First, install `rimraf` as a development dependency:
