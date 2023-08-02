@@ -41,7 +41,6 @@ const Header = () => {
                         <span className="text-sm md:text-base">
                             Senior Web Developer at{' '}
                             <a
-                                className=" underline"
                                 href="//esri.com"
                                 target="_blank"
                                 rel="noreferrer"
