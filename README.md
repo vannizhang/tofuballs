@@ -14,5 +14,5 @@ Here are the steps to add a new blog post to tofuballs.
 
 ## Deployment
 1. run `npm run build` to generate site files in `docs` folder
-2. the `postbuild` hook will get triggered `./scripts/createCNAME.js` that creates a `CNAME` file in `docs` folder, which is required by GitHub pages.
+2. the `postbuild` hook will get triggered `./scripts/createCNAME.js` that creates a `CNAME` file in `docs` folder, which is required by GitHub pages site that uses the custom domain, [here](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/troubleshooting-custom-domains-and-github-pages#cname-errors) to learn more.
 3. push to GitHub and you should be able to see the changes.
