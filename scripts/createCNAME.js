@@ -12,7 +12,7 @@ const DOCS_PATH = path.join(__dirname, '..', 'docs');
 const CNAME_FILE_PATH = path.join(DOCS_PATH, 'CNAME')
 
 /**
- * The documentation of the GitHub Pages, a CNAME file should be included in the root of your publishing source.
+ * The documentation of the GitHub Pages, a `CNAME` file should be included in the root of your publishing source, which is `docs` folder for our case.
  * Then, make sure the CNAME file is formatted correctly:
  * - The CNAME filename must be all uppercase.
  * - The CNAME file can contain only one domain. To point multiple domains to your site, you must set up a redirect through your DNS provider.
