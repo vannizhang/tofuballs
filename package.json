@@ -62,7 +62,8 @@
     "prebuild": "npm run populateBlogList",
     "start": "webpack serve --mode development --open",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "postbuild": "node ./scripts/createCNAME.js "
   },
   "lint-staged": {
     "src/**/*.{ts,tsx,json}": [
