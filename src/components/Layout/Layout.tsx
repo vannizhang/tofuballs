@@ -22,7 +22,7 @@ const Layout: FC<Props> = ({ children }) => {
         <div className="container mx-auto max-w-3xl px-3 md:px-0">
             <SiteNav />
 
-            <div>{children}</div>
+            <div className="min-h-[60vh]">{children}</div>
 
             <Footer />
         </div>
