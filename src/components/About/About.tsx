@@ -26,12 +26,12 @@ const About = () => {
             </p>
 
             <p>
-                Currently, I&#39;m working on a{' '}
-                <a href="https://github.com/vannizhang/react-d3-charts">
-                    UI library
+                Here&#39;s one of my recent creations:{' '}
+                <a href="https://livingatlas.arcgis.com/landsatexplorer/">
+                    Landsat Explorer
                 </a>{' '}
-                that can be used to create simple charts with D3, React and
-                TypeScript.
+                , designed for visualizing and analyzing the extensive Landsat
+                imagery archive spanning back to 1982.
             </p>
         </div>
     );
