@@ -21,6 +21,17 @@ const Works = () => {
 
                     <li>
                         <a
+                            href="https://livingatlas.arcgis.com/landsatexplorer/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Landsat Explorer
+                        </a>{' '}
+                        - visualizing and analyzing Landsat archive since 1982.
+                    </li>
+
+                    <li>
+                        <a
                             href="https://livingatlas.arcgis.com/landcoverexplorer/"
                             target="_blank"
                             rel="noreferrer"
@@ -179,7 +190,7 @@ const Works = () => {
                         >
                             County-to-County Migration Flows
                         </a>{' '}
-                        - some side projects that I worked on long time ago
+                        - some old side projects that I worked on long time ago
                         (when jQuery was still my first choice library).
                     </li>
                 </ul>
