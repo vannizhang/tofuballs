@@ -3,7 +3,7 @@ import React from 'react';
 
 const Works = () => {
     return (
-        <div className="mt-8 border-gray-200 dark:border-slate-600 pb-10">
+        <div className="mt-12 border-gray-200 dark:border-slate-600 pb-10">
             <div>
                 <h5 className="font-semibold text-lg mb-4">Work:</h5>
                 <ul className="list-outside pl-4">
@@ -27,7 +27,8 @@ const Works = () => {
                         >
                             Landsat Explorer
                         </a>{' '}
-                        - visualizing and analyzing Landsat archive since 1982.
+                        - visualizing and analyzing the extensive Landsat
+                        imagery archive spanning back to 1982.
                     </li>
 
                     <li>
