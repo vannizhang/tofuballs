@@ -16,36 +16,39 @@ const BlogPost = () => {
 
     const { markdownContent, notFound, blogPostData } = useBlogPost(location);
 
-    /**
-     * the markdown content itself dosen't contain creation date in it.
-     *
-     * But we still want to display the creation date below the title of the blog post.
-     * and the only way that I can come up with at is appending an element to the title of the blog
-     */
-    const insertCreationDate = () => {
-        const { createdDate } = blogPostData;
+    // /**
+    //  * the markdown content itself dosen't contain creation date in it.
+    //  *
+    //  * But we still want to display the creation date below the title of the blog post.
+    //  * and the only way that I can come up with at is appending an element to the title of the blog
+    //  */
+    // const insertCreationDate = () => {
+    //     const { createdDate } = blogPostData;
+    //     console.log(createdDate)
 
-        // find the first element inside of blog content, which should be the title of the blog
-        const title = document.querySelector(
-            `.${BLOG_CONTENT_CONTAINER_CLASSNAME} > :first-child`
-        );
+    //     // find the first element inside of blog content, which should be the title of the blog
+    //     const title = document.querySelector(
+    //         `.${BLOG_CONTENT_CONTAINER_CLASSNAME} > :first-child`
+    //     );
 
-        // abort if there if no child element,
-        // or the first child is one of the <h1> to <h6> tags.
-        if (!title || title.tagName.startsWith('H') === false) {
-            return;
-        }
+    //     // abort if there if no child element,
+    //     // or the first child is one of the <h1> to <h6> tags.
+    //     if (!title || title.tagName.startsWith('H') === false) {
+    //         return;
+    //     }
 
-        // create an element to show the last modified date of this blog post
-        const creationDateElem = document.createElement('div');
-        creationDateElem.className = 'mt-2 mb-4 opacity-70 text-sm font-light';
-        creationDateElem.textContent = format(
-            new Date(createdDate),
-            'yyyy-MM-dd'
-        );
+    //     console.log(title)
 
-        title.append(creationDateElem);
-    };
+    //     // create an element to show the last modified date of this blog post
+    //     const creationDateElem = document.createElement('div');
+    //     creationDateElem.className = 'mt-2 mb-4 opacity-70 text-sm font-light';
+    //     creationDateElem.textContent = format(
+    //         new Date(createdDate),
+    //         'yyyy-MM-dd'
+    //     );
+
+    //     title.append(creationDateElem);
+    // };
 
     useEffect(() => {
         if (notFound) {
@@ -53,11 +56,11 @@ const BlogPost = () => {
         }
     }, [notFound]);
 
-    useEffect(() => {
-        if (markdownContent && blogPostData) {
-            insertCreationDate();
-        }
-    }, [markdownContent, blogPostData]);
+    // useEffect(() => {
+    //     if (markdownContent && blogPostData) {
+    //         insertCreationDate();
+    //     }
+    // }, [markdownContent, blogPostData]);
 
     return (
         <Layout>

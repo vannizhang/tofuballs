@@ -83,7 +83,7 @@ const useBlogPost = (location: Location) => {
             const data = posts.find((post) => post.fileName === fileName);
             setBlogPostData(data);
         }
-    }, [posts]);
+    }, [posts, fileName]);
 
     return {
         markdownContent,
