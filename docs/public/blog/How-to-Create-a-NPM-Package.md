@@ -36,7 +36,7 @@ Then, respond to the prompts to create a `package.json` file. Here's an example 
 }
 ```
 
-## Updating the package.json File
+## Updating the `package.json` File
 
 In addition to initializing the `package.json` file, we also need to update it to have the `main`, `types`, and `files` fields point to the `dist` folder.
 
