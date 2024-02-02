@@ -34,14 +34,14 @@ const formatBlogPostName = (fileName: string): string => {
     const [name] = fileName.split('.');
     const words = name.split('-');
 
-    const output: string[] = [];
+    // const output: string[] = [];
 
-    for (const w of words) {
-        const formattedWord = w[0].toUpperCase() + w.slice(1);
-        output.push(formattedWord);
-    }
+    // for (const w of words) {
+    //     const formattedWord = w[0].toUpperCase() + w.slice(1);
+    //     output.push(formattedWord);
+    // }
 
-    return output.join(' ');
+    return words.join(' ');
 };
 
 const BlogPosts = () => {
