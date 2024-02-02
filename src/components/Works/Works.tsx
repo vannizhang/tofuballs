@@ -102,7 +102,7 @@ const Works = () => {
                         GLDAS services.
                     </li>
 
-                    <li>
+                    {/* <li>
                         <a
                             href="https://livingatlas.arcgis.com/vessel-traffic/#@=-115.998,32.998,6&time=202006&sublayer=Cargo"
                             target="_blank"
@@ -113,7 +113,7 @@ const Works = () => {
                         - explore the paths of vessels in and around U.S.
                         waters, look for patterns and trends by time, vessel
                         type, and place.
-                    </li>
+                    </li> */}
 
                     <li>
                         <a
