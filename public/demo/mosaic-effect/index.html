@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Mosaic Effect</title>
+
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background-color: #d1d1d1;
+        }
+
+        #container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+        <canvas id="myCanvas"></canvas>
+    </div>
+  
+  <script>
+    
+    const canvas = document.getElementById('myCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const blockSize = 16
+
+    const img = new Image();
+
+    /**
+     * Applies a mosaic effect to the given image data by averaging colors within blocks.
+     * @param {ImageData} imageData - The ImageData object representing the image.
+     * @param {number} blockSize - The size of each block for averaging colors.
+     * @returns {ImageData} - The modified ImageData object with the mosaic effect applied.
+     */
+    const applyMosaicEffect = (imageData, blockSize)=>{
+        const data = imageData.data;
+        const width = imageData.width;
+        const height = imageData.height;
+        
+        // Iterate through the virtual matrix of the image using blockSize as the step size
+        for (let row = 0; row < height; row += blockSize) {
+            for (let col = 0; col < width; col += blockSize) {
+
+                let sumR = 0; // sum of red color
+                let sumG = 0; // sum of green color
+                let sumB = 0; // sum of blue color
+                let count = 0; // sum of number of pixels in the block
+                
+                // Calculate average color within the block
+                for (let dy = 0; dy < blockSize; dy++) {
+                    for (let dx = 0; dx < blockSize; dx++) {
+
+                        // Calculate the row and col of this pixel in the virtual matrix
+                        const pixelCol = Math.min(col + dx, width - 1);
+                        const pixelRow = Math.min(row + dy, height - 1);
+
+                        // Calculate the offset position of this pixel in the image data
+                        const offset = (pixelRow * width + pixelCol) * 4;
+
+                        sumR += data[offset];
+                        sumG += data[offset + 1];
+                        sumB += data[offset + 2];
+                        count++;
+                    }
+                }
+                
+                // Calculate the average color
+                const avgR = sumR / count;
+                const avgG = sumG / count;
+                const avgB = sumB / count;
+                
+                // Fill the block with the average color
+                for (let dy = 0; dy < blockSize; dy++) {
+                    for (let dx = 0; dx < blockSize; dx++) {
+
+                        const pixelCol = Math.min(col + dx, width - 1);
+                        const pixelRow = Math.min(row + dy, height - 1);
+                        const offset = (pixelRow * width + pixelCol) * 4;
+
+                        // Assign average color to each pixel in the block
+                        data[offset] = avgR;
+                        data[offset + 1] = avgG;
+                        data[offset + 2] = avgB;
+                    }
+                }
+            }
+        }
+        
+        return imageData;
+    }
+
+    const addLegoStud = ()=>{
+        // Load the image
+        const legostudImage = new Image();
+        legostudImage.src = "./legostud.png";
+
+        // When the image is loaded, draw it repeatedly on the canvas
+        legostudImage.onload = function() {
+            // Define the number of times you want to repeat the image
+            const repeatX = canvas.width / blockSize; // Number of repeats in the X direction
+            const repeatY = canvas.height / blockSize; // Number of repeats in the Y direction
+
+            // Loop through each position and draw the image
+            for (let i = 0; i < repeatX; i++) {
+                for (let j = 0; j < repeatY; j++) {
+                    // Draw the image at the current position
+                    ctx.drawImage(legostudImage, i * blockSize, j * blockSize, blockSize, blockSize);
+                }
+            }
+        };
+    }
+    
+    img.onload = function() {
+
+        canvas.height = img.height;
+        canvas.width = img.width;
+
+        ctx.drawImage(img, 0, 0);
+        
+        // an ImageData object representing the underlying pixel data for a specified portion of the canvas
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        
+        applyMosaicEffect(imageData, blockSize)
+
+        ctx.putImageData(imageData, 0, 0);
+
+        addLegoStud()
+    };
+    
+    img.src = './example.jpg'; // Replace 'example.jpg' with the path to your image
+  </script>
+</body>
+</html>

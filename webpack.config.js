@@ -72,7 +72,7 @@ module.exports =  (env, options)=> {
                     { 
                         from: "public/**/*", 
                         globOptions: {
-                            ignore: ["**/index.html"],
+                            ignore: ["**/TEMPLATE.html"],
                         },
                     }
                 ],
@@ -80,7 +80,7 @@ module.exports =  (env, options)=> {
             new HtmlWebpackPlugin({
                 // inject: false,
                 // hash: true,
-                template: './public/index.html',
+                template: './public/TEMPLATE.html',
                 filename: 'index.html',
                 minify: {
                     html5                          : true,
