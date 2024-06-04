@@ -1,37 +1,37 @@
 import React, { useEffect, useState } from 'react';
 import { BLOG_POSTS_DIRECTORY } from '../constants';
-import { Location } from 'react-router';
+import { Location, useParams } from 'react-router';
 import useBlogPosts, { BlogPostData } from './useBlogPosts';
 
-/**
- * Get the markdown file name based on the current URL location data
- * @param location
- * @returns
- *
- * @example
- * usage
- * ```
- * getMarkdownFileName({
- *  pathname: '/blog/hello-world'
- * })
- * ```
- *
- * returns
- * ```
- * 'hello-world.md'
- * ```
- */
-const getMarkdownFileName = (location: Location) => {
-    const paths = location.pathname.split('/');
+// /**
+//  * Get the markdown file name based on the current URL location data
+//  * @param location
+//  * @returns
+//  *
+//  * @example
+//  * usage
+//  * ```
+//  * getMarkdownFileName({
+//  *  pathname: '/blog/hello-world'
+//  * })
+//  * ```
+//  *
+//  * returns
+//  * ```
+//  * 'hello-world.md'
+//  * ```
+//  */
+// const getMarkdownFileName = (location: Location) => {
+//     const paths = location.pathname.split('/');
 
-    while (!paths[paths.length - 1]) {
-        paths.pop();
-    }
+//     while (!paths[paths.length - 1]) {
+//         paths.pop();
+//     }
 
-    const fileName = paths.pop();
+//     const fileName = paths.pop();
 
-    return fileName ? `${fileName}.md` : '';
-};
+//     return fileName ? `${fileName}.md` : '';
+// };
 
 /**
  * This hook fetches the markdown content and metadata of the Blog Post
@@ -39,8 +39,10 @@ const getMarkdownFileName = (location: Location) => {
  * @param location
  * @returns
  */
-const useBlogPost = (location: Location) => {
-    const fileName = getMarkdownFileName(location);
+const useBlogPost = () => {
+    // const fileName = getMarkdownFileName(location);
+
+    const { id } = useParams();
 
     /**
      * text content of the markdown file
@@ -62,7 +64,7 @@ const useBlogPost = (location: Location) => {
     useEffect(() => {
         (async () => {
             try {
-                const res = await fetch(`${BLOG_POSTS_DIRECTORY}/${fileName}`);
+                const res = await fetch(`${BLOG_POSTS_DIRECTORY}/${id}.md`);
 
                 if (res.status === 404) {
                     throw new Error('not found');
@@ -76,14 +78,14 @@ const useBlogPost = (location: Location) => {
                 setNotFound(true);
             }
         })();
-    }, [fileName]);
+    }, [id]);
 
     useEffect(() => {
         if (posts) {
-            const data = posts.find((post) => post.fileName === fileName);
+            const data = posts.find((post) => post.fileName === id + '.md');
             setBlogPostData(data);
         }
-    }, [posts, fileName]);
+    }, [posts, id]);
 
     return {
         markdownContent,

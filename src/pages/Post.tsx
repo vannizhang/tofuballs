@@ -12,9 +12,7 @@ const BLOG_CONTENT_CONTAINER_CLASSNAME = `blog-content`;
 const BlogPost = () => {
     const navigate = useNavigate();
 
-    const location = useLocation();
-
-    const { markdownContent, notFound, blogPostData } = useBlogPost(location);
+    const { markdownContent, notFound, blogPostData } = useBlogPost();
 
     // /**
     //  * the markdown content itself dosen't contain creation date in it.
