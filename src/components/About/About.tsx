@@ -25,14 +25,14 @@ const About = () => {
                 code that makes life easier for my future self.
             </p>
 
-            <p>
+            {/* <p>
                 Here&#39;s one of my recent creations:{' '}
                 <a href="https://livingatlas.arcgis.com/landsatexplorer/">
                     Landsat Explorer
                 </a>{' '}
                 , designed for visualizing and analyzing the extensive Landsat
                 imagery archive spanning back to 1982.
-            </p>
+            </p> */}
         </div>
     );
 };
