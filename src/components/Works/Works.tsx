@@ -68,6 +68,50 @@ const Works = () => {
 
                     <li>
                         <a
+                            href="https://github.com/vannizhang/wayback-core"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            wayback-core
+                        </a>{' '}
+                        - NPM package that powers the{' '}
+                        <a
+                            href="https://livingatlas.arcgis.com/wayback/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            World Imagery Wayback
+                        </a>{' '}
+                        app, it offers core functionalities to retrieve versions
+                        of the World Imagery Wayback archieve.
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://github.com/vannizhang/react-d3-charts"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            React D3 Charts
+                        </a>{' '}
+                        - A collection of simple and reusable charts with D3,
+                        React and TypeScript.
+                    </li>
+
+                    <li>
+                        <a
+                            href="https://github.com/vannizhang/react-redux-boilerplate"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            React-Redux Boilerplate
+                        </a>{' '}
+                        - A project template that provides an easier and faster
+                        way to start a React+Redux project with TypeScript.
+                    </li>
+
+                    <li>
+                        <a
                             href="https://livingatlas.arcgis.com/emu/"
                             target="_blank"
                             rel="noreferrer"
@@ -112,22 +156,9 @@ const Works = () => {
                         symbols.
                     </li>
 
-                    {/* <li>
-                        <a
-                            href="https://livingatlas.arcgis.com/waterbalance/"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            Water Balance App
-                        </a>{' '}
-                        - quickly analyze and graph decades of change in
-                        Earth&#39;s water budget using data from NASA&#39;s
-                        GLDAS services.
-                    </li> */}
-
                     <li>
                         <a
-                            href="https://livingatlas.arcgis.com/vessel-traffic/#@=-115.998,32.998,6&time=202006&sublayer=Cargo"
+                            href="https://livingatlas.arcgis.com/vessel-traffic/"
                             target="_blank"
                             rel="noreferrer"
                         >
