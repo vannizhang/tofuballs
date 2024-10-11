@@ -18,7 +18,8 @@ module.exports =  (env, options)=> {
             path: path.resolve(__dirname, './docs'),
             filename: '[name].[contenthash].js',
             chunkFilename: '[name].[contenthash].js',
-            clean: true
+            clean: true,
+            assetModuleFilename: `[name][contenthash][ext][query]`
         },
         devtool: 'source-map',
         resolve: {
@@ -55,8 +56,14 @@ module.exports =  (env, options)=> {
                         }
                     ],
                 },
-                { test: /\.(woff|ttf|eot)$/, loader: "file-loader" },
-                { test: /\.(png|jpg|gif|svg)$/,  loader: "file-loader" },
+                {
+                    test: /\.(woff|woff2|ttf|eot)$/,
+                    type: 'asset/resource',
+                },
+                {
+                    test: /\.(png|jpg|gif|svg)$/,
+                    type: 'asset/resource',
+                },
             ]
         },
         plugins: [
