@@ -42,6 +42,18 @@ const Works = () => {
 
                             <li>
                                 <a
+                                    href="https://livingatlas.arcgis.com/sentinel2explorer/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    Sentinel-2 Explorer
+                                </a>{' '}
+                                - Explore and begin to unlock the wealth of
+                                information provided by Sentinel-2
+                            </li>
+
+                            <li>
+                                <a
                                     href="https://livingatlas.arcgis.com/sentinel1explorer/"
                                     target="_blank"
                                     rel="noreferrer"
@@ -62,6 +74,18 @@ const Works = () => {
                                 </a>{' '}
                                 - explore land cover change using Sentinel-2 10m
                                 Land Use/Land Cover data.
+                            </li>
+
+                            <li>
+                                <a
+                                    href="https://livingatlas.arcgis.com/nlcdlandcoverexplorer/"
+                                    target="_blank"
+                                    rel="noreferrer"
+                                >
+                                    NLCD Land Cover Explorer
+                                </a>{' '}
+                                - explore and compare annual NLCD Land Cover
+                                data since 1985.
                             </li>
                         </ul>
                     </li>
